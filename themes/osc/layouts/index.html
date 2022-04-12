@@ -1,0 +1,150 @@
+{{ define "main" }}
+
+    <!-- https://getbootstrap.com/docs/5.1/components/navbar/-->
+    <nav class="navbar navbar-expand-lg navbar-light">
+
+        <!-- navbar content -->
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                OpenSim Creator
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">
+                            <i class="bi bi-house"></i> Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.youtube.com/playlist?list=PLOPlDtRLhp8c2SWLCQKKd-l4__UainOYk">
+                            <i class="bi bi-film"></i> Videos
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav d-flex">
+                    <a class="nav-item btn btn-primary" href="https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases">
+                        <i class="bi bi-download"></i> Download
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- top fold -->
+
+    <!--https://getbootstrap.com/docs/5.1/examples/jumbotron/-->
+    <div class="container py-4">
+    
+        <div class="p-5 mb-4 bg-light rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">
+                OpenSim Creator
+            </h1>
+            <p class="col-md-8 fs-4">
+                Empowering model development for biomedical research.
+            </p>
+            <p class="col-md-8">
+                OpenSim Creator is open-source desktop software that empowers people to visually build and explore OpenSim models. Available for free on Windows, Mac, and Linux.
+            </p>
+            <a href="https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases" class="btn btn-primary btn-lg">
+                <i class="bi bi-download"></i> Download
+            </a>
+            <a href="https://github.com/ComputationalBiomechanicsLab/opensim-creator" class="btn btn-outline-secondary btn-lg">
+                <i class="bi bi-github"></i> View GitHub
+            </a>
+          </div>
+        </div>
+    
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+              <h2>Visual Model Building</h2>
+              <p>
+                  The mesh importer screen in OpenSim Creator enables people to visually
+                  build an OpenSim model from scratch.
+              </p>
+              <a href="https://www.youtube.com/watch?v=RBue8pm6mC8&list=PLOPlDtRLhp8c2SWLCQKKd-l4__UainOYk&index=5" class="btn btn-outline-light">
+                <i class="bi bi-play"></i> View Tutorial Video
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+              <h2>Integrated Model Editing</h2>
+              <p>
+                  The editor screen in OpenSim Creator enables researchers to edit OpenSim models both in the UI itself and in external tools such as text editors.
+              </p>
+              <a href="https://www.youtube.com/watch?v=QdFV4ompxE8&list=PLOPlDtRLhp8c2SWLCQKKd-l4__UainOYk&index=2" class="btn btn-outline-secondary">
+                <i class="bi bi-play"></i> Video Feature Overview Video
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <br />
+
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+              <h2>Open-Source Software</h2>
+              <p>
+                  OpenSim Creator is entirely open source and uses a permissive Apache 2.0 license, which empowers innovators to use it however they want.
+              </p>
+              <a href="https://github.com/ComputationalBiomechanicsLab/opensim-creator" class="btn btn-outline-secondary">
+                <i class="bi bi-github"></i> View GitHub
+              </a>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+              <h2>Compatible with OpenSim</h2>
+              <p>
+                  OpenSim Creator uses the OpenSim API directly, which makes it very compatible with the existing OpenSim infrastructure, including existing model files.
+              </p>
+              <a href="https://github.com/opensim-org/opensim-models" class="btn btn-outline-light">
+                <i class="bi bi-box-arrow-up-right"></i> View OpenSim Models Repository
+              </a>
+            </div>
+          </div>
+        </div>
+    
+        <footer class="pt-3 mt-4 text-muted border-top">
+            <div class="row">
+                <div class="col-md-9">
+                    <p>
+                        &copy; 2022 TU Delft Computational Biomechanics Lab
+                    </p>
+                    <p>
+                        OpenSim Creator started development in 2021 in the <a href="https://www.tudelft.nl/3me/over/afdelingen/biomechanical-engineering">Biomechanical Engineering</a> department at <a href="https://www.tudelft.nl/">TU Delft</a>. It is currently funded by the <a href="https://chanzuckerberg.com/">Chan Zuckerberg Initiative</a>'s "Essential Open Source Software for Science" grant (Chan Zuckerberg Initiative DAF, 2020-218896 (5022)).
+                    </p>                    
+                </div>
+                <div class="col-md-3 d-flex justify-content-evenly">
+                    <a href="https://www.tudelft.nl/3me/over/afdelingen/biomechanical-engineering" class="align-self-center">
+                        {{ $tudLogo := resources.Get "img/tud_logo.png" }}
+                        <img src="{{ $tudLogo.RelPermalink }}" style="max-height: 7em;" />
+                    </a>
+                    
+                    <a href="https://chanzuckerberg.com/" class="align-self-center">
+                        {{ $czLogo := resources.Get "img/chanzuckerberg_logo.png" }}
+                        <img src="{{ $czLogo.RelPermalink }}"  style="max-height: 7em;" />
+                    </a>
+                </div>
+                <div class="col-md-2 align-self-center text-center">
+
+                </div>
+                <div class="col-md-2 align-self-center text-center">
+
+                </div>
+            </div>            
+        </footer>
+    </div>
+
+{{ end }}
