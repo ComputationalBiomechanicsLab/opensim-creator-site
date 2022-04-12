@@ -1,0 +1,37 @@
+<!-- https://getbootstrap.com/docs/5.1/components/navbar/-->
+<nav class="navbar navbar-expand-lg navbar-light">
+
+    <!-- navbar content -->
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            {{ $opensimLogo := resources.Get "img/oso_logo.svg" }}
+            <img src="{{ $opensimLogo.RelPermalink }}" class="me-2" style="height: 3em;" />
+            OpenSim Creator
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+
+                <!-- see config.toml -->
+                {{ $current := . }}
+                {{ range .Site.Menus.main }}
+                    <li class="nav-item">
+                        <a class="nav-link{{ if (eq $current.RelPermalink .URL) }} active{{ end }}" aria-current="page" href="{{ .URL }}">
+                            {{ .Pre }} {{ .Name }}
+                        </a>
+                    </li>
+                {{ end }}
+            </ul>
+
+            <ul class="navbar-nav d-flex">
+                <a class="nav-item btn btn-primary" href="https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases">
+                    <i class="bi bi-download"></i> Download
+                </a>
+            </ul>
+        </div>
+    </div>
+</nav>

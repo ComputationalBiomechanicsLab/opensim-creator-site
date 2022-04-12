@@ -1,0 +1,27 @@
+<!-- footer -->
+<footer class="pt-3 mt-4 text-muted border-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <p>
+                    &copy; 2024 TU Delft Computational Biomechanics Lab
+                </p>
+                <p>
+                    OpenSim Creator started development in 2021 in the <a href="https://www.tudelft.nl/3me/over/afdelingen/biomechanical-engineering">Biomechanical Engineering</a> department at <a href="https://www.tudelft.nl/">TU Delft</a>. It is currently funded by the <a href="https://chanzuckerberg.com/">Chan Zuckerberg Initiative</a>'s "Essential Open Source Software for Science" grant (Chan Zuckerberg Initiative DAF, 2020-218896 (5022)).
+                </p>
+            </div>
+            <div class="col-md-3 d-flex justify-content-evenly">
+                <a href="https://www.tudelft.nl/3me/over/afdelingen/biomechanical-engineering" class="align-self-center">
+                    {{ $tudLogo := resources.Get "img/tud_logo.png" }}
+                    <img src="{{ $tudLogo.RelPermalink }}" style="max-height: 7em;" />
+                </a>
+
+                <a href="https://chanzuckerberg.com/" class="align-self-center">
+                    {{ $czLogo := resources.Get "img/chanzuckerberg_logo.png" }}
+                    <img src="{{ $czLogo.RelPermalink }}"  style="max-height: 7em;" />
+                </a>
+            </div>
+        </div>
+        <br />
+    </div>
+</footer>

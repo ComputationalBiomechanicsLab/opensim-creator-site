@@ -1,0 +1,48 @@
+{{ define "main" }}
+
+<div class="container">
+    {{ .Content }}
+
+    {{ range $section := .Site.Data.gallery }}
+        <h2>
+            {{ .header }}
+        </h2>
+        <p class="lead">
+            Released {{ .released }}. <a href="{{ .releaseURL }}" ><i class="bi bi-github"></i> GitHub</a>
+        </p>
+
+        <div class="d-flex flex-wrap">
+            {{ range $asset := .assets }}
+                <div class="col-md-3">
+                    {{ if .fileIsVideo }}
+                        <a href="{{ .file }}">
+                                {{ $posterFile := .file | strings.TrimSuffix  ".mp4" | strings.TrimSuffix ".webm" | printf "%s_thumbnail.jpg" }}
+                                <video
+                                    class="img-fluid rounded img-thumbnail"
+                                    preload="none"
+                                    poster="{{ $posterFile }}"
+                                    width="480"
+                                    height="270"
+                                    controls>
+
+                                    <source src="{{ .file }}">
+                                </video>
+                        </a>
+                    {{ else }}
+                        {{ $file := resources.Get .file }}
+                        <a href="{{ $file.RelPermalink }}">
+                            <img
+                                class="img-fluid rounded img-thumbnail"
+                                src="{{ ($file.Fill "480x270 jpg q90 Center").RelPermalink  }}"
+                                loading="lazy"
+                            />
+                        </a>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+        <br />
+    {{ end }}
+</div>
+
+{{ end }}

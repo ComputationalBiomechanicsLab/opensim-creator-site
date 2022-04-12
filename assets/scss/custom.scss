@@ -1,0 +1,8 @@
+{{ $woff := resources.Get "font/bootstrap-icons.woff" }}
+{{ $woff2 := resources.Get "font/bootstrap-icons.woff2" }}
+
+$bootstrap-icons-font-src: url("{{$woff2.RelPermalink}}?524846017b983fc8ded9325d94ed40f3") format("woff2"),
+url("{{$woff2.RelPermalink}}?524846017b983fc8ded9325d94ed40f3") format("woff") !default;
+
+@import "bootstrap/bootstrap";
+@import "bootstrap-icons";

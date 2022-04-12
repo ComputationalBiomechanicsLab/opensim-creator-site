@@ -1,0 +1,36 @@
+baseURL = 'http://www.opensimcreator.com'
+languageCode = 'en-us'
+title = 'OpenSim Creator'
+staticDir = 'static'
+
+[menu]
+[[menu.main]]
+    identifier = 'about'
+    name = 'Home'
+    pre = '<i class="bi bi-house"></i>'
+    url = '/'
+    weight = -110
+[[menu.main]]
+    identifier = 'gallery'
+    name = 'Gallery'
+    pre = '<i class="bi bi-camera"></i>'
+    url = '/gallery/'
+    weight = -109
+[[menu.main]]
+    identifier = 'github'
+    name = 'GitHub'
+    pre = '<i class="bi bi-github"></i>'
+    url = 'https://github.com/ComputationalBiomechanicsLab/opensim-creator'
+    weight = -108
+[[menu.main]]
+    identifier = 'youtube'
+    name = 'YouTube'
+    pre = '<i class="bi bi-youtube"></i>'
+    url = 'https://www.youtube.com/playlist?list=PLOPlDtRLhp8c2SWLCQKKd-l4__UainOYk'
+    weight = -107
+[[menu.main]]
+    identifier = "discussions"
+    name = 'Discussions'
+    pre = '<i class="bi bi-chat"></i>'
+    url = "https://github.com/ComputationalBiomechanicsLab/opensim-creator/discussions"
+    weight = -106
