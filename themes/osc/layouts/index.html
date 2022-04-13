@@ -6,6 +6,8 @@
         <!-- navbar content -->
         <div class="container">
             <a class="navbar-brand" href="/">
+                {{ $opensimLogo := resources.Get "img/opensim_logo.png" }}
+                <img src="{{ $opensimLogo.RelPermalink }}" style="width: 1em; height: 1em; margin-right: 0.5em;" />
                 OpenSim Creator
             </a>
 
