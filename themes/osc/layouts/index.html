@@ -42,16 +42,18 @@
     <!--https://getbootstrap.com/docs/5.1/examples/jumbotron/-->
     <div class="container py-4">
     
-        <div class="p-5 mb-4 bg-light rounded-3">
-          <div class="container-fluid py-5">
+        <div class="row p-5 mb-4 bg-light rounded-3">
+
+          <!-- lhs -->
+          <div class="col-md-7">
             <h1 class="display-5 fw-bold">
                 OpenSim Creator
             </h1>
-            <p class="col-md-8 fs-4">
+            <p class="fs-4">
                 Empowering model development for biomedical research.
             </p>
-            <p class="col-md-8">
-                OpenSim Creator is open-source desktop software that empowers people to visually build and explore OpenSim models. Available for free on Windows, Mac, and Linux.
+            <p>
+                OpenSim Creator is open-source software that enables people to visually build, edit, and simulate OpenSim models. Available for free on Windows, Mac, and Linux.
             </p>
             <a href="https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases" class="btn btn-primary btn-lg">
                 <i class="bi bi-download"></i> Download
@@ -60,11 +62,18 @@
                 <i class="bi bi-github"></i> View GitHub
             </a>
           </div>
+
+          <!-- rhs -->
+          <video class="col-md-5" controls autoplay="autoplay" muted>
+            <source src="OpenSimCreator_LandingPageVideo.mp4" type="video/mp4" />
+          </video>
         </div>
     
         <div class="row align-items-md-stretch">
           <div class="col-md-6">
             <div class="h-100 p-5 text-white bg-dark rounded-3">
+              <iframe src="https://www.youtube.com/embed/RBue8pm6mC8" style="width:100%;"></iframe>
+              
               <h2>Visual Model Building</h2>
               <p>
                   The mesh importer screen in OpenSim Creator enables people to visually
@@ -77,6 +86,8 @@
           </div>
           <div class="col-md-6">
             <div class="h-100 p-5 bg-light border rounded-3">
+              <iframe src="https://www.youtube.com/embed/QdFV4ompxE8" style="width:100%;"></iframe>
+
               <h2>Integrated Model Editing</h2>
               <p>
                   The editor screen in OpenSim Creator enables researchers to edit OpenSim models both in the UI itself and in external tools such as text editors.
