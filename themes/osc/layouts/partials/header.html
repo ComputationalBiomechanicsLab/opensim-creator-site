@@ -1,0 +1,38 @@
+<!-- https://getbootstrap.com/docs/5.1/components/navbar/-->
+<nav class="navbar navbar-expand-lg navbar-light">
+
+    <!-- navbar content -->
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            {{ $opensimLogo := resources.Get "img/opensim_logo.png" }}
+            <img src="{{ $opensimLogo.RelPermalink }}" class="me-2" style="width: 1em; height: 1em;" />
+            OpenSim Creator
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">
+                        <i class="bi bi-house"></i> Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.youtube.com/playlist?list=PLOPlDtRLhp8c2SWLCQKKd-l4__UainOYk">
+                        <i class="bi bi-film"></i> Videos
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav d-flex">
+                <a class="nav-item btn btn-primary" href="https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases">
+                    <i class="bi bi-download"></i> Download
+                </a>
+            </ul>
+        </div>
+    </div>
+</nav>
