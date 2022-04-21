@@ -2,6 +2,7 @@ baseURL = 'http://opensimcreator.com'
 languageCode = 'en-us'
 title = 'OpenSim Creator'
 theme = 'osc'
+staticDir = 'static'
 
 [menu]
 [[menu.main]]
@@ -16,9 +17,9 @@ theme = 'osc'
     pre = '<i class="bi bi-film"></i>'
     url = 'https://www.youtube.com/playlist?list=PLOPlDtRLhp8c2SWLCQKKd-l4__UainOYk'
     weight = -100
-[[menu.main]]
-    identifier = 'docs'
-    name = 'Docs'
-    pre = '<i class="bi bi-book"></i>'
-    url = '/doc/'
-    weight = -90
+#[[menu.main]]
+#    identifier = 'docs'
+#    name = 'Docs'
+#    pre = '<i class="bi bi-book"></i>'
+#    url = '/doc/'
+#    weight = -90

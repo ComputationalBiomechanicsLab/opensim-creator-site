@@ -1,15 +1,6 @@
 
 {{ define "main" }}
-<main>
-    SECTION INDEX
-    {{ .Content }}
-        <ul class="contents">
-        {{ range .Paginator.Pages }}
-            <li>{{.Title}}
-                <div>
-                </div>
-            </li>
-        {{ end }}
-        </ul>
-</main>
+
+{{ .Content }}
+
 {{ end }}
