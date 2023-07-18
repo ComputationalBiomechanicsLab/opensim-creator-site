@@ -1,7 +1,6 @@
 baseURL = 'http://opensimcreator.com'
 languageCode = 'en-us'
 title = 'OpenSim Creator'
-theme = 'osc'
 staticDir = 'static'
 
 [menu]
@@ -11,6 +10,12 @@ staticDir = 'static'
     pre = '<i class="bi bi-house"></i>'
     url = '/'
     weight = -110
+[[menu.main]]
+    identifier = 'gallery'
+    name = 'Gallery'
+    pre = '<i class="bi bi-camera"></i>'
+    url = '/gallery/'
+    weight = -105
 [[menu.main]]
     identifier = 'videos'
     name = 'Videos'

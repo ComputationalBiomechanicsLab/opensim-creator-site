@@ -1,0 +1,22 @@
+{{ define "main" }}
+
+<div class="container">
+    {{ .Content }}
+
+    {{ range $section := .Site.Data.gallery }}
+        <h2>{{ .header }}</h2>
+        <div class="d-flex flex-wrap">
+            {{ range $asset := .assets }}
+                {{ $image := resources.Get .file }}
+                <div class="col-md-3">
+                    <a href="{{ $image.RelPermalink  }}">
+                        <img class="img-fluid rounded img-thumbnail" src="{{ ($image.Fill "960x540 q100 Center").RelPermalink  }}" />
+                    </a>
+                </div>                
+            {{ end }}
+        </div>
+        <br />
+    {{ end }}
+</div>
+
+{{ end }}
