@@ -17,9 +17,9 @@ staticDir = 'static'
     url = '/gallery/'
     weight = -105
 [[menu.main]]
-    identifier = 'videos'
-    name = 'Videos'
-    pre = '<i class="bi bi-film"></i>'
+    identifier = 'youtube'
+    name = 'YouTube'
+    pre = '<i class="bi bi-youtube"></i>'
     url = 'https://www.youtube.com/playlist?list=PLOPlDtRLhp8c2SWLCQKKd-l4__UainOYk'
     weight = -100
 #[[menu.main]]
