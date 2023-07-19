@@ -1,7 +1,19 @@
 [
     {
-        "header": "0.4.1",
+        "header": "0.5.0",
+        "released": "2022/07/12",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.0",
         "assets": [
+            {"file": "video/gallery/0.5.0_FrameDefinitionDemo.mp4", "fileIsVideo": true}
+        ]
+    },
+    {
+        "header": "0.4.1",
+        "released": "2022/04/13",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.4.1",
+        "assets": [
+            {"file": "video/gallery/0.4.1_Showcase.mp4", "fileIsVideo": true},
+            {"file": "video/gallery/0.4.1_FrameDefinitionPrototype.mp4", "fileIsVideo": true},
             {"file": "img/gallery/0.4.1_ModelEditor.png" },
             {"file": "img/gallery/0.4.1_Simulator.png" },
             {"file": "img/gallery/0.4.1_Splash.png" }
@@ -9,7 +21,12 @@
     },
     {
         "header": "0.4.0",
+        "released": "2022/03/07",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.4.0",
         "assets": [
+            {"file": "video/gallery/0.4.0_Showcase60fps.mp4", "fileIsVideo": true},
+            {"file": "video/gallery/0.4.0_LinesOfAction.mp4", "fileIsVideo": true},
+            {"file": "video/gallery/0.4.0_MeshWarping1080.mp4", "fileIsVideo": true},
             {"file": "img/gallery/0.4.0_ModelEditor.png" },
             {"file": "img/gallery/0.4.0_Simulator.png" },
             {"file": "img/gallery/0.4.0_MeshImporter.png" },
@@ -21,7 +38,16 @@
     },
     {
         "header": "0.3.2",
+        "released": "2022/01/09",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.3.2",
         "assets": [
+            {"file": "video/gallery/0.3.2_FrameDefinitionIntegratedWithWarping.mp4", "fileIsVideo": true},
+            {"file": "video/gallery/0.3.2_HotReloadingDemo.mp4", "fileIsVideo": true},
+            {"file": "video/gallery/0.3.2_MeshWarping.mp4", "fileIsVideo": true},
+            {"file": "video/gallery/0.3.2_MeshWarping2D_Blending.mp4", "fileIsVideo": true},
+            {"file": "video/gallery/0.3.2_MeshWarping2D_Placement.mp4", "fileIsVideo": true},
+            {"file": "video/gallery/0.3.2_MeshWarpingBasic.mp4", "fileIsVideo": true},
+            {"file": "video/gallery/0.3.2_MeshWarpingBlending.mp4", "fileIsVideo": true},
             {"file": "img/gallery/0.3.2_ModelEditor.png" },
             {"file": "img/gallery/0.3.2_Simulator.png" },
             {"file": "img/gallery/0.3.2_MeshImporter.png" },
@@ -32,7 +58,10 @@
     },
     {
         "header": "0.3.0",
+        "released": "2022/09/15",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.3.0",
         "assets": [
+            {"file": "video/gallery/0.3.0_LivePlottingDemo.mp4", "fileIsVideo": true},
             {"file": "img/gallery/0.3.0.png" },
             {"file": "img/gallery/0.3.0_ModelEditor.png" },
             {"file": "img/gallery/0.3.0_Simulator.png" },
@@ -47,6 +76,8 @@
     },
     {
         "header": "0.2.0",
+        "released": "2022/07/04",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.2.0",
         "assets": [
             {"file": "img/gallery/0.2.0.png" },
             {"file": "img/gallery/0.2.0_ModelEditor.png" },
@@ -58,6 +89,8 @@
     },
     {
         "header": "0.1.6",
+        "released": "2022/05/12",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.1.6",
         "assets": [
             {"file": "img/gallery/0.1.6_ModelEditor.png" },
             {"file": "img/gallery/0.1.6_Splash.png" },
@@ -67,6 +100,8 @@
     },
     {
         "header": "0.1.4",
+        "released": "2022/04/12",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.1.4",
         "assets": [
             {"file": "img/gallery/0.1.4_ModelEditor.png" },
             {"file": "img/gallery/0.1.4_Simulator.png" },
@@ -75,7 +110,10 @@
     },
     {
         "header": "0.1.0",
+        "released": "2021/02/09",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.1.0",
         "assets": [
+            {"file": "video/gallery/0.1.0_LandingPageDemo.mp4", "fileIsVideo": true},
             {"file": "img/gallery/0.1.0.png" },
             {"file": "img/gallery/0.1.0_ModelEditor.png" },
             {"file": "img/gallery/0.1.0_Simulator.png" },
@@ -85,6 +123,8 @@
     },
     {
         "header": "0.0.7",
+        "released": "2021/11/26",
+        "releaseURL": "https://github.com/adamkewley/opensim-creator/releases/tag/0.0.7",
         "assets": [
             {"file": "img/gallery/0.0.7_ModelEditor.png" },
             {"file": "img/gallery/0.0.7_Simulator.png" },
@@ -94,6 +134,8 @@
     },
     {
         "header": "0.0.6",
+        "released": "2021/11/12",
+        "releaseURL": "https://github.com/adamkewley/opensim-creator/releases/tag/0.0.6",
         "assets": [
             {"file": "img/gallery/0.0.6_ModelEditor.png" },
             {"file": "img/gallery/0.0.6_ModelEditor2.png" },
@@ -104,6 +146,8 @@
     },
     {
         "header": "0.0.5",
+        "released": "2021/10/01",
+        "releaseURL": "https://github.com/adamkewley/opensim-creator/releases/tag/0.0.5",
         "assets": [
             {"file": "img/gallery/0.0.5_ModelEditor.png" },
             {"file": "img/gallery/0.0.5_Simulator.png" },
@@ -112,6 +156,8 @@
     },
     {
         "header": "0.0.4",
+        "released": "2021/09/22",
+        "releaseURL": "https://github.com/adamkewley/opensim-creator/releases/tag/0.0.4",
         "assets": [
             {"file": "img/gallery/0.0.4_ModelEditor.png" },
             {"file": "img/gallery/0.0.4_Simulator.png" }
@@ -119,6 +165,8 @@
     },
     {
         "header": "0.0.3",
+        "released": "2021/07/14",
+        "releaseURL": "https://github.com/adamkewley/opensim-creator/releases/tag/0.0.3",
         "assets": [
             {"file": "img/gallery/0.0.3_ModelEditor.png" },
             {"file": "img/gallery/0.0.3_ModelEditor2.png" },
@@ -128,11 +176,22 @@
     },
     {
         "header": "0.0.2",
+        "released": "2021/04/12",
+        "releaseURL": "https://github.com/adamkewley/opensim-creator/releases/tag/0.0.2",
         "assets": [
             {"file": "img/gallery/0.0.2_ModelEditor.png" },
             {"file": "img/gallery/0.0.2_ModelEditor2.png" },
             {"file": "img/gallery/0.0.2_Simulator.png" },
             {"file": "img/gallery/0.0.2_Splash.png" }
+        ]
+    },
+    {
+        "header": "0.0.0 (osmv)",
+        "released": "2021/01/13",
+        "releaseURL": "https://github.com/adamkewley/opensim-creator/releases/tag/0.0.1-deb4",
+        "assets": [
+            {"file": "video/gallery/0.0.0_LiveUpdates.webm", "fileIsVideo": true},
+            {"file": "video/gallery/0.0.0_PanelDocking.webm", "fileIsVideo": true}
         ]
     }
 ]

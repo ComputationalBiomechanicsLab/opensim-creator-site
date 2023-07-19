@@ -4,13 +4,25 @@
     {{ .Content }}
 
     {{ range $section := .Site.Data.gallery }}
-        <h2>{{ .header }}</h2>
+        <h2>
+            {{ .header }}
+        </h2>
+        <p class="lead">
+            Released {{ .released }}. <a href="{{ .releaseURL }}" ><i class="bi bi-github"></i> GitHub</a>
+        </p>
+
         <div class="d-flex flex-wrap">
             {{ range $asset := .assets }}
-                {{ $image := resources.Get .file }}
+                {{ $file := resources.Get .file }}
                 <div class="col-md-3">
-                    <a href="{{ $image.RelPermalink  }}">
-                        <img class="img-fluid rounded img-thumbnail" src="{{ ($image.Fill "960x540 q100 Center").RelPermalink  }}" />
+                    <a href="{{ $file.RelPermalink  }}">
+                        {{ if .fileIsVideo }}
+                            <video class="img-fluid rounded img-thumbnail" controls>
+                                <source src="{{ $file.RelPermalink  }}">
+                            </video>
+                        {{ else }}
+                            <img class="img-fluid rounded img-thumbnail" src="{{ ($file.Fill "960x540 q100 Center").RelPermalink  }}" />
+                        {{ end }}
                     </a>
                 </div>                
             {{ end }}
