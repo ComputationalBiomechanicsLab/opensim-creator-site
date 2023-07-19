@@ -4,6 +4,15 @@
         "released": "2022/07/12",
         "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.0",
         "assets": [
+            {"file": "img/gallery/0.5.0_FrameDefinition.png"},
+            {"file": "img/gallery/0.5.0_FrameDefinitionCalculate.png"},
+            {"file": "img/gallery/0.5.0_FrameDefinitionExport.png"},
+            {"file": "img/gallery/0.5.0_Gorilla.png"},
+            {"file": "img/gallery/0.5.0_MeshImporter.png"},
+            {"file": "img/gallery/0.5.0_ModelEditor.png"},
+            {"file": "img/gallery/0.5.0_ModelEditorRajagopalShowcase.png"},
+            {"file": "img/gallery/0.5.0_SimulatorScreen.png"},
+            {"file": "img/gallery/0.5.0_SplashScreen.png"},
             {"file": "video/gallery/0.5.0_FrameDefinitionDemo.mp4", "fileIsVideo": true}
         ]
     },
