@@ -1,7 +1,7 @@
 [
     {
         "header": "0.5.0",
-        "released": "2022/07/12",
+        "released": "2023/07/12",
         "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.0",
         "assets": [
             {"file": "img/gallery/0.5.0_FrameDefinition.png"},
@@ -18,7 +18,7 @@
     },
     {
         "header": "0.4.1",
-        "released": "2022/04/13",
+        "released": "2023/04/13",
         "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.4.1",
         "assets": [
             {"file": "video/gallery/0.4.1_Showcase.mp4", "fileIsVideo": true},
@@ -30,7 +30,7 @@
     },
     {
         "header": "0.4.0",
-        "released": "2022/03/07",
+        "released": "2023/03/07",
         "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.4.0",
         "assets": [
             {"file": "video/gallery/0.4.0_Showcase60fps.mp4", "fileIsVideo": true},
@@ -47,7 +47,7 @@
     },
     {
         "header": "0.3.2",
-        "released": "2022/01/09",
+        "released": "2023/01/09",
         "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.3.2",
         "assets": [
             {"file": "video/gallery/0.3.2_FrameDefinitionIntegratedWithWarping.mp4", "fileIsVideo": true},
