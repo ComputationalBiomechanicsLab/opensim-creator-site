@@ -17,11 +17,24 @@
                 <div class="col-md-3">
                     <a href="{{ $file.RelPermalink  }}">
                         {{ if .fileIsVideo }}
-                            <video class="img-fluid rounded img-thumbnail" controls>
+                            {{ $posterFile := strings.Replace .file "video" "img" | strings.TrimSuffix ".mp4" | strings.TrimSuffix ".webm" | printf "%s_thumb.jpg" }}
+                            {{ $posterResource := resources.Get $posterFile }}
+                            <video
+                                class="img-fluid rounded img-thumbnail"
+                                preload="none"
+                                poster="{{ $posterResource.RelPermalink }}"
+                                width="480"
+                                height="270"
+                                controls>
+
                                 <source src="{{ $file.RelPermalink  }}">
                             </video>
                         {{ else }}
-                            <img class="img-fluid rounded img-thumbnail" src="{{ ($file.Fill "960x540 q100 Center").RelPermalink  }}" />
+                            <img
+                                class="img-fluid rounded img-thumbnail"
+                                src="{{ ($file.Fill "480x270 jpg q90 Center").RelPermalink  }}"
+                                loading="lazy"
+                            />
                         {{ end }}
                     </a>
                 </div>                
