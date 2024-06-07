@@ -3,4 +3,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link rel="stylesheet" href="{{ $customStyling.RelPermalink }}">
+<script>
+    // to prevent Firefox FOUC, this must be here
+    //
+    // https://stackoverflow.com/questions/21147149/flash-of-unstyled-content-fouc-in-firefox-only-is-ff-slow-renderer
+    let FF_FOUC_FIX;
+  </script>
 <title>OpenSim Creator</title>
