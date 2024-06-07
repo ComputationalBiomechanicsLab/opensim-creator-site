@@ -5,12 +5,6 @@ staticDir = 'static'
 
 [menu]
 [[menu.main]]
-    identifier = 'about'
-    name = 'Home'
-    pre = '<i class="bi bi-house"></i>'
-    url = '/'
-    weight = -110
-[[menu.main]]
     identifier = 'gallery'
     name = 'Gallery'
     pre = '<i class="bi bi-camera"></i>'
@@ -30,7 +24,7 @@ staticDir = 'static'
     weight = -107
 [[menu.main]]
     identifier = "discussions"
-    name = 'Discussions'
+    name = 'Support'
     pre = '<i class="bi bi-chat"></i>'
     url = "https://github.com/ComputationalBiomechanicsLab/opensim-creator/discussions"
     weight = -106
