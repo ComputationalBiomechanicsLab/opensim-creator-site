@@ -11,12 +11,6 @@ staticDir = 'static'
     url = '/gallery/'
     weight = -109
 [[menu.main]]
-    identifier = 'github'
-    name = 'GitHub'
-    pre = '<i class="bi bi-github"></i>'
-    url = 'https://github.com/ComputationalBiomechanicsLab/opensim-creator'
-    weight = -108
-[[menu.main]]
     identifier = 'documentation'
     name = 'Documentation'
     pre = '<i class="bi bi-book"></i>'

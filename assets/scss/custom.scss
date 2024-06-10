@@ -6,3 +6,18 @@ url("{{$woff2.RelPermalink}}?524846017b983fc8ded9325d94ed40f3") format("woff") !
 
 @import "bootstrap/bootstrap";
 @import "bootstrap-icons";
+
+@include media-breakpoint-up(lg) {
+    .osc-navbar-btn:not(:first-child) {
+        margin-left: 0.5em;
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .osc-navbar-btn {
+        flex-basis: 100%;
+        flex-direction: column;
+        display: block;
+        margin: 0.5em 0 0.5em 0;
+    }
+}
