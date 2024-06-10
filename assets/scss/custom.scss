@@ -21,3 +21,8 @@ url("{{$woff2.RelPermalink}}?524846017b983fc8ded9325d94ed40f3") format("woff") !
         margin: 0.5em 0 0.5em 0;
     }
 }
+
+.osc-news-article img {
+    width: 100%;
+    border-radius: 10px;
+}
