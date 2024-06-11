@@ -2,6 +2,7 @@ baseURL = 'http://www.opensimcreator.com'
 languageCode = 'en-us'
 title = 'OpenSim Creator'
 staticDir = 'static'
+summaryLength = 10
 
 [menu]
 [[menu.main]]
