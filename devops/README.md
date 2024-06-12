@@ -30,7 +30,7 @@ The reason for this organizational split is so that there's:
   documentation releases that may have new releases over time, and may have some
   occasional unversioned updates (links changed, etc.), but the general structure
   will be quite static. In the future, this system may also need to support
-  dynamic documentation content.
+  dynamic documentation content (e.g. visualizers, notebooks)
 
 - `files.opensimcreator.com` is suitable for storing large, mostly immutable,
   files that can't practically be saved into a git repository, because `git`
@@ -44,15 +44,7 @@ The reason for this organizational split is so that there's:
 # Concrete Technical Explanation
 
 This section contains a concrete, manual, explanation of how the various services
-for `opensimcreator.com` are deployed.
-
-The reason it's described manually, rather than automatically (e.g. by using
-a configuration manager or `docker` swarms) is because almost every time I have
-maintained a server the thing that caused the most headaches was the system, so
-this is designed to be very simple and lean on filesystems, webservers, and Linux
-basics.
-
-This is how the web platforms for `opensimcreator.com` are deployed:
+for `opensimcreator.com` are deployed:
 
 - A bare Debian VPS with daily snapshot backups was hired from Hetzner
 - Namecheap, the domain name provider, was used to update the subdomains to
