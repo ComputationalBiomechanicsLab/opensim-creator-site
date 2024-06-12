@@ -1,217 +1,61 @@
 # OpenSim Creator Site
 
-> Source code for www.opensimcreator.com, plus admin/architecture guides for the
-> associated docs.opensimcreator.com and files.opensimcreator.com servers
+> The source code behind www.opensimcreator.com
+>
+> A landing page for the OpenSim Creator project, which includes a gallery and
+> relevant links to (e.g.) documentation.
+
+This repository contains the source code for OpenSim Creator's user-facing landing
+page, which is hosted at https://www.opensimcreator.com . It's kept in a separate
+repository from the [OpenSim Creator](https://github.com/ComputationalBiomechanicsLab/opensim-creator)
+code because it has different build/deployment/development cycle requirements.
 
 
-# Top-Level Architectural Explanation
+## 🖥️ Dependencies/Environment Setup
 
-OpenSim Creator uses one redirection domain and three distinct domain names to
-organize its content:
+The documentation is self-contained, but may contain URLs to `files.opensimcreator.com`
+when the asset is very large or shared (e.g. videos). The concrete deployment
+steps that we use to actually ship the documentation to users is described in
+[opensim-creator-devops](https://github.com/ComputationalBiomechanicsLab/opensim-creator-devops).
 
-- `opensimcreator.com`: apex domain that 301 redirects to `www.opensimcreator.com`
-- `www.opensimcreator.com`: what you see in this repo: top-level landing page
-  content. Top-level organizational notes, roadmap, etc.
-- `docs.opensimcreator.com`: hosts builds of documentation (e.g. from
-  `opensim-creator-docs`)
-- `files.opensimcreator.com`: storage location for larger assets (think: images,
-   meshes, videos) that may be shared between various tendrils of the opensimcreator
-   project (e.g. `docs.opensimcreator.com` may want to link to a video hosted
-   here but, equally, the same video may be used in a blog post by
-   `www.opensimcreator.com`)
+The website is built using only [hugo](https://gohugo.io) as a dependency. The
+general procedure for installing it is:
 
-The reason for this organizational split is so that there's:
-
-- `www.opensimcreator.com` (this repo) is suitable for published, usually
-  un-versioned (from a user PoV), and quite dynamic, top-level project news,
-  marketing, roadmaps, download links etc.
-
-- `docs.opensimcreator.com` is suitable for potentially-multi-versioned
-  documentation releases that may have new releases over time, and may have some
-  occasional unversioned updates (links changed, etc.), but the general structure
-  will be quite static. In the future, this system may also need to support
-  dynamic documentation content.
-
-- `files.opensimcreator.com` is suitable for storing large, mostly immutable,
-  files that can't practically be saved into a git repository, because `git`
-  hosts typically have size limits and  `git`'s default behavior is to clone
-  the entire repository. This system needs to focus on being an extremely simple
-  key-value blob store (e.g. its design should make it possible to host on an
-  S3 bucket without breaking links). In the future, it may need to also support
-  recording download statistics and integration with `git lfs`
+- Go to https://gohugo.io/installation/
+- Follow the relevant guide for your platform. As a concrete example, download a
+  prebuilt `hugo_extended` binary from https://github.com/gohugoio/hugo/releases/tag/v0.127.0
+  and ensure it's on the `PATH` for your platform (or manually invoke it, e.g.
+  on Windows, with `../hugo.exe`)
+- Once installed, the docs should be serve-able by `cd`ing into this repository's
+  working directory and running `hugo serve`
 
 
-# Concrete Technical Explanation
+## 🏗️ Building
 
-This section contains a concrete, manual, explanation of how the various services
-for `opensimcreator.com` are deployed.
-
-The reason it's described manually, rather than automatically (e.g. by using
-a configuration manager or `docker` swarms) is because almost every time I have
-maintained a server the thing that caused the most headaches was the system, so
-this is designed to be very simple and lean on filesystems, webservers, and Linux
-basics.
-
-This is how the web platforms for `opensimcreator.com` are deployed:
-
-- A bare Debian VPS with daily snapshot backups was hired from Hetzner
-- Namecheap, the domain name provider, was used to update the subdomains to
-  contain A and AAAA records that point to the server's static IP address(es). The
-  apex domain (`opensimcreator.com`) uses the same A and AAAA records as the `www`
-  subdomain (redirection is performed by the server).
-- `nginx` and `certbot` were installed onto the server
-- `certbot certonly` was used to acquire TLS certificates for each subdomain
-- A systemd timer (modern-day cronjob) was setup to run `certbox -q renew` at
-  regular intervals, to ensure the certificate doesn't expire. **Note**: debian
-  installs this unit for you, but you _must_ disable `nginx` during the renew
-  procedure (see `ExecStartPre` and `ExecStartPost`)
-
-```text
-root@opensimcreator-server:~# cat /lib/systemd/system/certbot.timer
-[Unit]
-Description=Run certbot twice daily
-
-[Timer]
-OnCalendar=*-*-* 00,12:00:00
-RandomizedDelaySec=43200
-Persistent=true
-
-[Install]
-WantedBy=timers.target
-root@opensimcreator-server:~# cat /lib/systemd/system/certbot.service
-[Unit]
-Description=Certbot
-Documentation=file:///usr/share/doc/python-certbot-doc/html/index.html
-Documentation=https://letsencrypt.readthedocs.io/en/latest/
-[Service]
-Type=oneshot
-ExecStartPre=systemctl stop nginx
-ExecStart=/usr/bin/certbot -q renew
-ExecStartPost=systemctl start nginx
-PrivateTmp=true
-```
-
-- The timer was enabled with `systemctl enable certbot.timer`
-- `nginx` was configured to serve static assets for each subdomain, e.g.:
-
-```text
-root@opensimcreator-server:~# cat /etc/nginx/sites-available/*.opensimcreator.com
-server {
-        server_name docs.opensimcreator.com;
-        listen 80;
-        listen [::]:80;
-        return 301 https://$host$request_uri;
-}
-
-server {
-        server_name docs.opensimcreator.com;
-
-        listen 443 ssl http2;
-        listen [::]:443 ssl http2;
-        ssl_certificate /etc/letsencrypt/live/docs.opensimcreator.com/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/docs.opensimcreator.com/privkey.pem;
-
-        root /var/www/docs.opensimcreator.com;
-        index index.html;
-
-        location = / {
-                return 302 https://$host/manual/en/latest;
-        }
-}
-server {
-        server_name files.opensimcreator.com;
-        listen 80;
-        listen [::]:80;
-        return 301 https://$host$request_uri;
-}
-
-server {
-        server_name files.opensimcreator.com;
-
-        listen 443 ssl http2;
-        listen [::]:443 ssl http2;
-        ssl_certificate /etc/letsencrypt/live/files.opensimcreator.com/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/files.opensimcreator.com/privkey.pem;
-
-        root /var/www/files.opensimcreator.com;
-        index index.html;
-        autoindex on;
-}
-server {
-        server_name opensimcreator.com;
-        listen 80;
-        listen [::]:80;
-        rewrite ^/(.*)$ https://www.opensimcreator.com/$1 permanent;
-}
-
-server {
-        server_name opensimcreator.com;
-        listen 443 ssl;
-        listen [::]:443 ssl;
-        ssl_certificate /etc/letsencrypt/live/opensimcreator.com/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/opensimcreator.com/privkey.pem;
-        rewrite ^/(.*)$ https://www.opensimcreator.com/$1 permanent;
-}
-server {
-        server_name www.opensimcreator.com;
-        listen 80;
-        listen [::]:80;
-        return 301 https://$host$request_uri;
-}
-
-server {
-        server_name www.opensimcreator.com;
-
-        listen 443 ssl http2;
-        listen [::]:443 ssl http2;
-        ssl_certificate /etc/letsencrypt/live/www.opensimcreator.com/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/www.opensimcreator.com/privkey.pem;
-
-        root /var/www/opensimcreator.com;
-        index index.html;
-}
-```
-
-- A publisher account was added for each service: `opensimcreator-publisher`,
-  `opensimcreator-docs-publisher`, `opensimcreator-files-publisher`, so that
-  (e.g.) CI can publish to `docs.opensimcreator.com`, but can't mess around with
-  `opensimcreator.com` or `files.opensimcreator.com`:
+To build the source code into standalone web assets, use the `hugo` command:
 
 ```bash
-adduser opensimcreator-publisher
-adduser opensimcreator-docs-publisher
-adduser opensimcreator-files-publisher
+hugo  # places built assets in `public/`
 ```
 
-- The static data directories were created and assigned to the relevant user so
-  that they're able to write to those directories:
+## ⌨️ Developing
+
+To live-build the website, use `hugo serve`:
 
 ```bash
-mkdir -p /var/www/opensimcreator.com
-chmod -R 755 /var/www/opensimcreator.com
-chown -R opensimcreator-publisher:www-data /var/www/opensimcreator.com
-
-mkdir -p /var/www/docs.opensimcreator.com
-chmod -R 755 /var/www/docs.opensimcreator.com
-chown -R opensimcreator-docs-publisher:www-data /var/www/docs.opensimcreator.com
-
-mkdir -p /var/www/files.opensimcreator.com
-chmod -R 755 /var/www/files.opensimcreator.com
-chown -R opensimcreator-files-publisher:www-data /var/www/files.opensimcreator.com
+hugo serve  # usually hosts the local dev server at `localhost:1313`
 ```
 
-- The `docs` datastructure was created to have a similar path structure to Blender,
-  to try and handle some forward-compatibility (languages, versions), but only initially
-  supply the latest user-facing documentation:
 
-```bash
-su opensimcreator-docs-publisher
-mkdir -p /var/www/docs.opensimcreator.com/manual/en/
-```
+## 🕊️ Releasing
 
-- **Note**: the `docs.opensimcreator.com` virtual server has been configured
-  (above) to automatically redirect to `docs.opensimcreator.com/manual/en/latest`
-  until multi-version documentation is coded
+This codebase doesn't have a release cadence/plan. It is just updated whenever
+there's new content that we'd like to upload.
 
-- The server was then ready for uploads via very standard tooling, such as
-  `rsync`: `rsync -avz files/* opensimcreator-files-publisher@files.opensimcreator.com:/var/www/files/`
+
+## 🚀 Deploying
+
+Deployment of a release of the website to (e.g.) https://www.opensimcreator.com
+is described in [opensim-creator-devops](https://github.com/ComputationalBiomechanicsLab/opensim-creator-devops). The
+procedure is subject to change, but *probably* involves something like `rsync`ing
+the built assets to a webserver, or GitHub Pages.
