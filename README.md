@@ -13,10 +13,10 @@ code because it has different build/deployment/development cycle requirements.
 
 ## 🖥️ Dependencies/Environment Setup
 
-The documentation is self-contained, but may contain URLs to `files.opensimcreator.com`
+The website source code is self-standing, but may contain URLs to `https://files.opensimcreator.com`
 when the asset is very large or shared (e.g. videos). The concrete deployment
-steps that we use to actually ship the documentation to users is described in
-[opensim-creator-devops](https://github.com/ComputationalBiomechanicsLab/opensim-creator-devops).
+steps and relevant configuration files that we use to ship the website
+and `files.opensimcreator.com` is described in [devops](devops/).
 
 The website is built using only [hugo](https://gohugo.io) as a dependency. The
 general procedure for installing it is:
@@ -56,6 +56,6 @@ there's new content that we'd like to upload.
 ## 🚀 Deploying
 
 Deployment of a release of the website to (e.g.) https://www.opensimcreator.com
-is described in [opensim-creator-devops](https://github.com/ComputationalBiomechanicsLab/opensim-creator-devops). The
-procedure is subject to change, but *probably* involves something like `rsync`ing
-the built assets to a webserver, or GitHub Pages.
+is described in [devops/](devops/). The procedure is subject to change, but
+*probably* involves some variation of `rsync`ing the built assets to a
+webserver, or GitHub Pages.
