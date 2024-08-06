@@ -206,7 +206,7 @@ mkdir -p /var/www/docs.opensimcreator.com/manual/en/
   until multi-version documentation is coded
 
 - The server was then ready for uploads via very standard tooling, such as
-  `rsync`: `rsync -avz files/* opensimcreator-files-publisher@files.opensimcreator.com:/var/www/files/`
+  `rsync`: `rsync -avz files/* opensimcreator-files-publisher@files.opensimcreator.com:/var/www/files.opensimcreator.com`
 
 
 
@@ -220,4 +220,10 @@ rsync -avz build/html/ docs.opensimcreator.com:/var/www/docs.opensimcreator.com/
 
 # set them as 'latest` (if desired)
 ssh docs.opensimcreator.com ln -sfn /var/www/docs.opensimcreator.com/manual/en/0.5.12 /var/www/docs.opensimcreator.com/manual/en/latest
+```
+
+Once the website is built, it's usually uploaded with:
+
+```bash
+rsync -avz public/ www.opensimcreator.com:/var/www/opensimcreator.com
 ```
