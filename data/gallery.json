@@ -4,10 +4,13 @@
         "released": "2024/07/30",
         "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.13",
         "assets": [
+            {"file": "https://files.opensimcreator.com/videos/0.5.13_showcase.mp4", "fileIsVideo": true},
             {"file": "img/gallery/0.5.13_linear-force-arrows-arm26.png"},
             {"file": "img/gallery/0.5.13_angular-force-arrows_leg39.png"},
             {"file": "img/gallery/0.5.13_functionplotter.png"},
-            {"file": "img/gallery/0.5.13_jointcentermanipulation.png"}
+            {"file": "img/gallery/0.5.13_jointcentermanipulation.png"},
+            {"file": "img/gallery/0.5.13_arm26-with-force-vectors.png"},
+            {"file": "img/gallery/0.5.13_live-editing-function-curve.png"}
         ]
     },
     {
