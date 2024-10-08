@@ -1,5 +1,24 @@
 [
     {
+        "header": "0.5.15",
+        "released": "2024/10/08",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.15",
+        "assets": [
+            {"file": "img/gallery/0.5.15_preview-experimental-data.png"},
+            {"file": "img/gallery/0.5.15_coordinates-in-simulator.png"},
+            {"file": "img/gallery/0.5.15_function-curve-panel.png"}
+        ]
+    },
+    {
+        "header": "0.5.14",
+        "released": "2024/09/04",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.14",
+        "assets": [
+            {"file": "img/gallery/0.5.14_mesh-warper-demo.png"},
+            {"file": "img/gallery/0.5.14_point-forces-body-forces.png"}
+        ]
+    },
+    {
         "header": "0.5.13",
         "released": "2024/07/30",
         "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.13",
