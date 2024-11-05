@@ -1,5 +1,13 @@
 [
     {
+        "header": "0.5.16",
+        "released": "2024/11/05",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.16",
+        "assets": [
+            {"file": "img/gallery/0.5.16_color-scaling-preview.png"}
+        ]
+    },
+    {
         "header": "0.5.15",
         "released": "2024/10/08",
         "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.15",
