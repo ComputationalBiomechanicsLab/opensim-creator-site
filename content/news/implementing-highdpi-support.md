@@ -9,28 +9,60 @@ params:
 
 In this post, I'm going to document how high DPI support is being developed for
 OpenSim Creator. I thought this would be nice to write up, because I found the
-process interesting, but unintuitive, in places. So this post acts as both 
-a development reminder for myself (when I'm debugging the inevitable issues
-that will arise due to any technical choices outlined here) and as a technical
-explanation for other developers (who will look at OpenSim Creator's source code
+process interesting, but unintuitive. So this post acts as both a
+development reminder for myself and as a technical explanation for other
+developers (who will look at OpenSim Creator's source code
 and wonder why on earth "pixels" or "virtual pixels" aren't the same as "physical
 pixels" or "device pixels").
 
 
 # Technical Overview
 
-OSC began development as a cross-platform application that used very "raw" libraries,
-so that it could be lightweight and easy to natively build on multiple platforms.
-It used [SDL2](https://www.libsdl.org/) to abstract the different operating systems,
-[OpenGL](https://www.opengl.org/) for rendering 3D graphics, and [Dear ImGui](https://github.com/ocornut/imgui) for
-rendering the 2D UI (buttons, dropdowns, and so on). Skipping over OSC's development
-timeline (that could be another post), the takeaway is that OSC was initially
-developed with low-level APIs - and with little regard for high-DPI rendering.
+OpenSim Creator uses very "raw" and low-level libraries. This is so that it is
+lightweight, can directly call the OpenSim C++ API, and is easy to natively
+build/debug from source on all target platforms. The alternative is to use/build
+a larger cross-platform library stack (e.g. Qt) on each each platform, or use a
+non-native stack (e.g. Electron). The reason I opted for the former is because
+I enjoy the degree of control it grants over the user experience - albeit, at
+the cost of debugging stuff like highDPI support.
 
-Low-level APIs *usually* work in "device pixels". If you tell SDL to create a window
-that's `600` wide, you'd expect a window that is 600 dots (pixels) wide. When
-SDL later emits an `SDL_MouseMotionEvent` within that window, you'd also expect
-that the `x`, `y`, `xrel`, and `yrel` quantities are expressed in terms of pixels.
+At time of writing, OpenSim Creator uses [SDL2](https://www.libsdl.org/) to abstract the
+different operating systems, [OpenGL](https://www.opengl.org/) to render 3D graphics,
+and [Dear ImGui](https://github.com/ocornut/imgui) to render the 2D UI. These libraries
+don't automagically support high-DPI scaling. If you tell SDL to create a window that's `600`
+wide, the expectation is that it creates a window that is 600 physical pixels (as in,
+dots on a screen) wide. Also, when SDL later emits events related to that window (e.g.
+a `SDL_MouseMotionEvent` *within* a window), the expectation is that the `x`, `y`, `xrel`,
+and `yrel` fields in that event are expressed in terms of physical pixels.
+
+However, in the world of highDPI, these assumptions aren't necessarily true. Some OSes
+differentiate between the number of physical pixels in a window and the number of
+"virtual" or "native" pixels in the window, where the "virtual" ones typically
+exist to emulate a pixel density that roughly matches what pre-highDPI monitors were
+(usually, 96 DPI). Here's an example of how some OSes behave:
+
+- **MacOS**: In 2010, Apple became one of the first mainstream highDPI vendors when
+  it released retina displays. Almost no (third-party) software supported highDPI at
+  this time, which is why (I'm *guessing*) MacOS uses a virtual pixel emulation system
+  at the OS level. What this means is that---even when running in highDPI mode---MacOS's
+  events, window dimensions, etc. are all expressed as "virtual" pixels with a roughly
+  96 DPI density, so that any application code that's density-dependent (e.g.
+  "draw a line that's 5 px long") will occupy roughly the same physical space on a
+  highDPI screen once the virtual pixels are upscaled to the higher-DPI system.
+
+- **Windows**: Windows
+
+   when it released
+  retina displays in  it   market When retina displays entered the market in 2010, macs were one of the first
+  entrants into  One of the first entrants into highDPI scaling
+windows (e.g. MacOS, one of the first entrants into HighDPI because of its retina screen
+support, opted for this emulation approach). Other OSes uniformly use physical pixels, but
+*also* provide a recommendation scalar to the application to tell it to scale UI elements
+up to a larger number of pixels (e.g. Windows, which entered the HighDPI game a little later
+but also has in-OS support for stuff like user-defined per-window scaling for legacy software
+support).
+
+These 
 
 
 # Background Work: Other Implementations
