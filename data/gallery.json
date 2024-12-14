@@ -1,5 +1,15 @@
 [
     {
+        "header": "0.5.17",
+        "released": "2024/12/11",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.17",
+        "assets": [
+            {"file": "img/gallery/0.5.17_new-socket-dialog.png"},
+            {"file": "img/gallery/0.5.17_zero-all-coordinates.png"},
+            {"file": "img/gallery/0.5.17_dinosaur-demo.png"}
+        ]
+    },
+    {
         "header": "0.5.16",
         "released": "2024/11/05",
         "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.16",
