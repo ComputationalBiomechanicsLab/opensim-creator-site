@@ -1,4 +1,4 @@
-{{ $customStyling := resources.Get "scss/custom.scss" | resources.ExecuteAsTemplate "main.scss" . | resources.ToCSS | minify }}
+{{ $customStyling := resources.Get "scss/custom.scss" | resources.ExecuteAsTemplate "main.scss" . | css.Sass | minify }}
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
