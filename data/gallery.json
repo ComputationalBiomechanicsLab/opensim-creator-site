@@ -1,5 +1,13 @@
 [
     {
+        "header": "0.5.19",
+        "released": "2024/01/24",
+        "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.19",
+        "assets": [
+            {"file": "img/gallery/0.5.19_female-upper-body.png"}
+        ]
+    },
+    {
         "header": "0.5.18",
         "released": "2024/01/16",
         "releaseURL": "https://github.com/ComputationalBiomechanicsLab/opensim-creator/releases/tag/0.5.18",
